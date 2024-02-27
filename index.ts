@@ -34,19 +34,46 @@ async function main() {
 // console.log(user)
 
 // create user nad acrticle and associate with them
-const user = await prisma.user.create({
-    data:{
-        name: "john",
-        email : "john@gmail.com",
-        articles : {
-           create:{
-            title: 'new title',
-            body : "new body"
-           }
-        }
-    }
+// const user = await prisma.user.create({
+//     data:{
+//         name: "john",
+//         email : "john@gmail.com",
+//         articles : {
+//            create:{
+//             title: 'new title',
+//             body : "new body"
+//            }
+//         }
+//     }
+// })
+// console.log(user)
+// const user = await prisma.user.create({
+//   data:{
+//     email: "winz@gmail.com",
+//     name : "siojc",
+//     posts:{
+//       create:{title: 'siojc'}
+//     },
+//     profile:{
+//       create:{bio: 'siojc'}
+//     }
+//   }
+// })
+
+// const alluser = await prisma.user.findMany({
+//   include: {
+//     posts: true,
+//     profile: true,
+//   }
+// })
+// console.log(alluser)
+
+const post = await prisma.post.update({
+  where: {id : 3},
+  data : {title : "newti"}
 })
-console.log(user)
+
+console.log(post)
 }
 
 main()
